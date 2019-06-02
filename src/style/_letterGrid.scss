@@ -1,0 +1,26 @@
+.letterGrid {
+  height: 100%;
+  padding: 2vh 10vw 10vh 10vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.letterGrid__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letterGrid--3perCol .letterGrid__item {
+  width: 30%;
+}
+
+.letterGrid--4perCol .letterGrid__item {
+  width: 24%;
+}
+
+.letterGrid--5perCol .letterGrid__item {
+  width: 18%;
+}
