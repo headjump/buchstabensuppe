@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import { closeDialog } from '../state/action'
@@ -8,23 +8,23 @@ const Dialog = ({ dialogs, dispatch }) => {
   const visible = !!dialog
 
   return (
-    <>
-      <CSSTransition in={visible} unmountOnExit timeout={500} classNames="--ani">
+    <React.Fragment>
+      <CSSTransition in={visible} unmountOnExit timeout={500} classNames='--ani'>
         <div className='dialog__backdrop' />
       </CSSTransition>
-      <CSSTransition in={visible} unmountOnExit timeout={500} classNames="--ani">
+      <CSSTransition in={visible} unmountOnExit timeout={500} classNames='--ani'>
         <div className='dialog__holder'>
           <div className='dialog'>
-            {dialog && 
-              <>
+            {dialog &&
+              <React.Fragment>
                 {dialog.content}
                 <a onClick={() => { visible && dispatch(closeDialog(dialog.id)) }}>CLOSE</a>
-              </>
+              </React.Fragment>
             }
           </div>
         </div>
       </CSSTransition>
-    </>
+    </React.Fragment>
   )
 }
 

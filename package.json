@@ -5,6 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers ChromeHeadless ./karma.config.js && standard",
+    "fixStandard": "standard --fix",
     "publish_to_gh": "yarn build && node deploy_to_gh-pages.js"
   },
   "repository": "git@github.com:headjump/buchstabensuppe.git",
@@ -23,13 +25,25 @@
     "@babel/preset-react": "^7.0.0",
     "add": "^2.0.6",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "gh-pages": "^2.0.1",
+    "karma": "^4.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cli": "^2.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^6.2.0",
     "normalize.css": "^8.0.1",
     "postcss-loader": "^3.0.0",
+    "puppeteer": "^1.19.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-transition-group": "^4.1.0",
@@ -40,5 +54,8 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "yarn": "^1.17.3"
+  },
+  "standard": {
+    "globals": [ "describe", "it" ]
   }
 }
